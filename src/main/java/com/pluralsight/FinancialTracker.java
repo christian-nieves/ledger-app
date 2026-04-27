@@ -77,6 +77,24 @@ public class FinancialTracker {
         //       parse the five fields, build a Transaction object,
         //       and add it to the transactions list.
 
+        String line;
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] parts = line.split("\\|");
+                LocalDate date = LocalDate.parse(parts[0]);
+                LocalTime time = LocalTime.parse(parts[1]);
+                String description = parts[2];
+                String vendor = parts[3];
+                double price = Double.parseDouble(parts[4]);
+                transactions.add(new Transaction(date, time, description, vendor, price));
+            }
+            bufferedReader.close();
+
+        } catch (Exception e) {
+            System.err.println("Something went wrong. Please try again!");
+        }
+
 
 
 

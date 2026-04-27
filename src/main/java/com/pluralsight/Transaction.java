@@ -57,4 +57,9 @@ public class Transaction {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return date + " | " + time + " | " + description + " | " + vendor + " | " + price;
+    }
 }
