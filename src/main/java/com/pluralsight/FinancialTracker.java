@@ -112,6 +112,22 @@ public class FinancialTracker {
      */
     private static void addDeposit(Scanner scanner) {
         // TODO
+        System.out.println("Enter the date and time (yyyy-MM-dd HH:mm:ss): ");
+        String dateTime = scanner.nextLine();
+
+        System.out.println("Enter the description: ");
+        String description = scanner.nextLine();
+
+        System.out.println("Enter the vendor: ");
+        String vendor = scanner.nextLine();
+
+        System.out.println("Enter the amount: ");
+        double amount = Double.parseDouble(scanner.nextLine());
+
+        if (amount <= 0 ) {
+            System.out.println("Amount must be positive. Please try again.");
+            return;
+        }
     }
 
     /**
