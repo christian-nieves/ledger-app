@@ -1,8 +1,6 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -127,6 +125,13 @@ public class FinancialTracker {
         if (amount <= 0 ) {
             System.out.println("Amount must be positive. Please try again.");
             return;
+        }
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("transactions.csv", true))) {
+            bufferedWriter.write(dateTime + " | " + description + " | " + vendor + " | " + amount);
+            bufferedWriter.newLine();
+            
+        } catch (Exception e) {
+            System.err.println("There was an error adding your deposit. Please try again later.");
         }
     }
 
