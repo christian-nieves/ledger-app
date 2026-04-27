@@ -127,9 +127,9 @@ public class FinancialTracker {
             return;
         }
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("transactions.csv", true))) {
-            bufferedWriter.write(dateTime + " | " + description + " | " + vendor + " | " + amount);
+            bufferedWriter.write(dateTime + "|" + description + "|" + vendor + "|" + amount);
             bufferedWriter.newLine();
-            
+
         } catch (Exception e) {
             System.err.println("There was an error adding your deposit. Please try again later.");
         }
@@ -142,6 +142,35 @@ public class FinancialTracker {
      */
     private static void addPayment(Scanner scanner) {
         // TODO
+        System.out.println("Enter the date and time (yyyy-MM-dd HH:mm:ss): ");
+        String dateTime = scanner.nextLine();
+
+        System.out.println("Enter the description: ");
+        String description = scanner.nextLine();
+
+        System.out.println("Enter the vendor: ");
+        String vendor = scanner.nextLine();
+
+        System.out.println("Enter the amount: ");
+        double amount = Double.parseDouble(scanner.nextLine());
+
+        double negativeAmount = amount * -1;
+
+        String[] dateTimeParts = dateTime.split(" ");
+        LocalDate date = LocalDate.parse(dateTimeParts[0]);
+        LocalTime time = LocalTime.parse(dateTimeParts[1]);
+
+        if (amount <= 0 ) {
+            System.out.println("Amount must be entered as a positive number. Please try again.");
+            return;
+        }
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("transactions.csv", true))) {
+            bufferedWriter.write(date + "|" + time + "|" + description + "|" + vendor + "|" + negativeAmount);
+            bufferedWriter.newLine();
+
+        } catch (Exception e) {
+            System.err.println("There was an error adding your deposit. Please try again later.");
+        }
     }
 
     /* ------------------------------------------------------------------
