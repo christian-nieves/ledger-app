@@ -6,10 +6,11 @@ Briefly describe what this Java console application does. Mention its purpose an
 
 ## User Stories
 
-List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
+- As a user, I want to add a deposit, so I can add funds to my account.
+- As a user, I want to make a payment, so I can use the money in my account.
+- As a user, I want access to a ledger, so I can view my payment history.
+- As a user, I want a custom search feature in the ledger, so that I can search by date, month, year, or vendor.
 
-- As a user, I want to be able to input my data, so that the application can process it accordingly.
-- As a user, I want to receive immediate feedback, so I can understand what to do next.
 
 ## Setup
 
