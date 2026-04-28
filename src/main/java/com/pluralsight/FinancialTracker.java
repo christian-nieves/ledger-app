@@ -252,8 +252,15 @@ public class FinancialTracker {
             String input = scanner.nextLine().trim();
 
             switch (input) {
-                case "1" -> {/* TODO – month-to-date report */ }
-                case "2" -> {/* TODO – previous month report */ }
+                case "1" -> {/* TODO – month-to-date report */
+                    LocalDate start = LocalDate.now().withDayOfMonth(1);
+                    LocalDate end = LocalDate.now();
+                    filterTransactionsByDate(start, end);
+
+                }
+                case "2" -> {/* TODO – previous month report */
+
+                }
                 case "3" -> {/* TODO – year-to-date report   */ }
                 case "4" -> {/* TODO – previous year report  */ }
                 case "5" -> {/* TODO – prompt for vendor then report */ }
@@ -269,6 +276,14 @@ public class FinancialTracker {
        ------------------------------------------------------------------ */
     private static void filterTransactionsByDate(LocalDate start, LocalDate end) {
         // TODO – iterate transactions, print those within the range
+
+
+        for (Transaction transaction : transactions) {
+            if (transaction.getDate().isAfter(start) && transaction.getDate().isBefore(end)) {
+                System.out.println(transaction.getDate() + "|" + transaction.getTime() + "|" + transaction.getDescription() + "|" + transaction.getVendor() + "|" + transaction.getAmount());
+            }
+        }
+
     }
 
     private static void filterTransactionsByVendor(String vendor) {
