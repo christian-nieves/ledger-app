@@ -90,7 +90,7 @@ public class FinancialTracker {
             bufferedReader.close();
 
         } catch (Exception e) {
-            System.err.println("Something went wrong. Please try again!");
+            System.err.println("Error: " + e.getMessage());
         }
 
 
@@ -122,12 +122,16 @@ public class FinancialTracker {
         System.out.println("Enter the amount: ");
         double amount = Double.parseDouble(scanner.nextLine());
 
+        String[] dateTimeParts = dateTime.split(" ");
+        LocalDate date = LocalDate.parse(dateTimeParts[0]);
+        LocalTime time = LocalTime.parse(dateTimeParts[1]);
+
         if (amount <= 0 ) {
             System.out.println("Amount must be positive. Please try again.");
             return;
         }
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("transactions.csv", true))) {
-            bufferedWriter.write(dateTime + "|" + description + "|" + vendor + "|" + amount);
+            bufferedWriter.write(date + "|" + time + "|" + description + "|" + vendor + "|" + amount);
             bufferedWriter.newLine();
 
         } catch (Exception e) {
@@ -203,9 +207,17 @@ public class FinancialTracker {
     /* ------------------------------------------------------------------
        Display helpers: show data in neat columns
        ------------------------------------------------------------------ */
-    private static void displayLedger() { /* TODO – print all transactions in column format */ }
+    private static void displayLedger() { /* TODO – print all transactions in column format */
+        System.out.println("All transactions: ");
+        for (Transaction transaction : transactions) {
+            System.out.println(transaction.getDate() + "|" + transaction.getTime() + "|" + transaction.getDescription() + "|" + transaction.getVendor() + "|" + transaction.getAmount());
+        }
 
-    private static void displayDeposits() { /* TODO – only amount > 0               */ }
+    }
+
+    private static void displayDeposits() { /* TODO – only amount > 0               */
+
+    }
 
     private static void displayPayments() { /* TODO – only amount < 0               */ }
 
