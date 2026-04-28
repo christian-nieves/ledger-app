@@ -225,7 +225,12 @@ public class FinancialTracker {
     }
 
     private static void displayPayments() { /* TODO – only amount < 0               */
-
+        System.out.println("All payments: ");
+        for (Transaction transaction : transactions) {
+            if (transaction.getAmount() < 0) {
+                System.out.println(transaction.getDate() + "|" + transaction.getTime() + "|" + transaction.getDescription() + "|" + transaction.getVendor() + "|" + transaction.getAmount());
+            }
+        }
     }
 
     /* ------------------------------------------------------------------
