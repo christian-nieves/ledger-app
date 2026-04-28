@@ -277,12 +277,16 @@ public class FinancialTracker {
                     filterTransactionsByDate(start, end);
                 }
                 case "5" -> {/* TODO – prompt for vendor then report */
-                    System.out.println("Search by vendor: ");
-                    String vendor = scanner.nextLine();
-                    filterTransactionsByVendor(vendor);
-
+                    try {
+                        System.out.println("Search by vendor: ");
+                        String vendor = scanner.nextLine();
+                        filterTransactionsByVendor(vendor);
+                        } catch (Exception e) {
+                        System.err.println("This vendor does not exist. Please try again.");
+                    }
                 }
                 case "6" -> customSearch(scanner);
+
                 case "0" -> running = false;
                 default -> System.out.println("Invalid option");
             }
@@ -317,6 +321,29 @@ public class FinancialTracker {
     private static void customSearch(Scanner scanner) {
         // TODO – prompt for any combination of date range, description,
         //        vendor, and exact amount, then display matches
+        System.out.println("Enter the start date: ");
+        LocalDate startDate = LocalDate.parse(scanner.nextLine());
+
+        System.out.println("Enter the end date: ");
+        LocalDate endDate = LocalDate.parse(scanner.nextLine());
+
+        System.out.println("Enter the description: ");
+        String description = scanner.nextLine();
+
+        System.out.println("Enter the vendor: ");
+        String vendor = scanner.nextLine();
+
+        System.out.println("Enter the amount: ");
+        double amount = scanner.nextDouble();
+
+
+
+
+
+        for (Transaction transaction : transactions) {
+            if (transaction.equals() scanner))
+            System.out.println(transaction.getDate() + "|" + transaction.getTime() + "|" + transaction.getDescription() + "|" + transaction.getVendor() + "|" + transaction.getAmount());
+        }
     }
 
     /* ------------------------------------------------------------------
