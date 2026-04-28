@@ -266,7 +266,9 @@ public class FinancialTracker {
 
                 }
                 case "3" -> {/* TODO – year-to-date report   */
-
+                LocalDate start = LocalDate.now().withDayOfYear(1);
+                LocalDate end = LocalDate.now();
+                filterTransactionsByDate(start, end);
                 }
                 case "4" -> {/* TODO – previous year report  */ }
                 case "5" -> {/* TODO – prompt for vendor then report */ }
