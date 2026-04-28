@@ -216,10 +216,17 @@ public class FinancialTracker {
     }
 
     private static void displayDeposits() { /* TODO – only amount > 0               */
-
+        System.out.println("All deposits: ");
+        for (Transaction transaction : transactions) {
+            if (transaction.getAmount() > 0) {
+                System.out.println(transaction.getDate() + "|" + transaction.getTime() + "|" + transaction.getDescription() + "|" + transaction.getVendor() + "|" + transaction.getAmount());
+            }
+        }
     }
 
-    private static void displayPayments() { /* TODO – only amount < 0               */ }
+    private static void displayPayments() { /* TODO – only amount < 0               */
+
+    }
 
     /* ------------------------------------------------------------------
        Reports menu
