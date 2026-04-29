@@ -354,7 +354,7 @@ public class FinancialTracker {
            if (!vendor.isBlank() && transaction.getVendor().equalsIgnoreCase(vendor)) {
                run = true;
            }
-           if (!amount.isBlank() && transaction.getAmount() == Double.parseDouble(amount)) {
+           if (!amount.isBlank() && Math.abs(transaction.getAmount()) == Double.parseDouble(amount)) {
                run = true;
            }
            if (run) {
