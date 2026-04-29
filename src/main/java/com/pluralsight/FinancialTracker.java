@@ -337,9 +337,11 @@ public class FinancialTracker {
         String amount = scanner.nextLine();
 
 
-        boolean run = false;
+
 
         for (Transaction transaction : transactions) {
+            boolean run = false;
+
            if (!startDate.isBlank() && transaction.getDate().isAfter(LocalDate.parse(startDate))) {
                run = true;
            }
