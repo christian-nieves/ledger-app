@@ -321,11 +321,11 @@ public class FinancialTracker {
     private static void customSearch(Scanner scanner) {
         // TODO – prompt for any combination of date range, description,
         //        vendor, and exact amount, then display matches
-        System.out.println("Enter the start date: ");
-        LocalDate startDate = LocalDate.parse(scanner.nextLine());
+        System.out.println("Enter the start date(yyyy-MM-dd): ");
+        String startDate = scanner.nextLine();
 
-        System.out.println("Enter the end date: ");
-        LocalDate endDate = LocalDate.parse(scanner.nextLine());
+        System.out.println("Enter the end date(yyyy-MM-dd): ");
+        String endDate = scanner.nextLine();
 
         System.out.println("Enter the description: ");
         String description = scanner.nextLine();
@@ -334,15 +334,30 @@ public class FinancialTracker {
         String vendor = scanner.nextLine();
 
         System.out.println("Enter the amount: ");
-        double amount = scanner.nextDouble();
+        String amount = scanner.nextLine();
 
 
-
-
+        boolean run = false;
 
         for (Transaction transaction : transactions) {
-            if (transaction.equals() scanner))
-            System.out.println(transaction.getDate() + "|" + transaction.getTime() + "|" + transaction.getDescription() + "|" + transaction.getVendor() + "|" + transaction.getAmount());
+           if (!startDate.isBlank() && transaction.getDate().isAfter(LocalDate.parse(startDate))) {
+               run = true;
+           }
+           if (!endDate.isBlank() && transaction.getDate().isBefore(LocalDate.parse(endDate))) {
+               run = true;
+           }
+           if (!description.isBlank() && transaction.getDescription().equalsIgnoreCase(description)) {
+               run = true;
+           }
+           if (!vendor.isBlank() && transaction.getVendor().equalsIgnoreCase(vendor)) {
+               run = true;
+           }
+           if (!amount.isBlank() && transaction.getAmount() == Double.parseDouble(amount)) {
+               run = true;
+           }
+           if (run) {
+               System.out.println(transaction.getDate() + "|" + transaction.getTime() + "|" + transaction.getDescription() + "|" + transaction.getVendor() + "|" + transaction.getAmount());
+           }
         }
     }
 
