@@ -338,30 +338,34 @@ public class FinancialTracker {
 
 
 
+        try {
+            for (Transaction transaction : transactions) {
+                boolean run = false;
 
-        for (Transaction transaction : transactions) {
-            boolean run = false;
-
-           if (!startDate.isBlank() && transaction.getDate().isAfter(LocalDate.parse(startDate))) {
-               run = true;
-           }
-           if (!endDate.isBlank() && transaction.getDate().isBefore(LocalDate.parse(endDate))) {
-               run = true;
-           }
-           if (!description.isBlank() && transaction.getDescription().equalsIgnoreCase(description)) {
-               run = true;
-           }
-           if (!vendor.isBlank() && transaction.getVendor().equalsIgnoreCase(vendor)) {
-               run = true;
-           }
-           if (!amount.isBlank() && Math.abs(transaction.getAmount()) == Double.parseDouble(amount)) {
-               run = true;
-           }
-           if (run) {
-               System.out.println(transaction.getDate() + "|" + transaction.getTime() + "|" + transaction.getDescription() + "|" + transaction.getVendor() + "|" + transaction.getAmount());
-           }
+                if (!startDate.isBlank() && transaction.getDate().isAfter(LocalDate.parse(startDate))) {
+                    run = true;
+                }
+                if (!endDate.isBlank() && transaction.getDate().isBefore(LocalDate.parse(endDate))) {
+                    run = true;
+                }
+                if (!description.isBlank() && transaction.getDescription().equalsIgnoreCase(description)) {
+                    run = true;
+                }
+                if (!vendor.isBlank() && transaction.getVendor().equalsIgnoreCase(vendor)) {
+                    run = true;
+                }
+                if (!amount.isBlank() && Math.abs(transaction.getAmount()) == Double.parseDouble(amount)) {
+                    run = true;
+                }
+                if (run) {
+                    System.out.println(transaction.getDate() + "|" + transaction.getTime() + "|" + transaction.getDescription() + "|" + transaction.getVendor() + "|" + transaction.getAmount());
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("The input you entered is incorrect. Please try again.");
         }
     }
+
 
     /* ------------------------------------------------------------------
        Utility parsers (you can reuse in many places)
