@@ -166,8 +166,8 @@ public class FinancialTracker {
         double negativeAmount = amount * -1;
 
         String[] dateTimeParts = dateTime.split(" ");
-        LocalDate date = LocalDate.parse(dateTimeParts[0]);
-        LocalTime time = LocalTime.parse(dateTimeParts[1]);
+        LocalDate date = LocalDate.parse(dateTimeParts[0], DATE_FMT);
+        LocalTime time = LocalTime.parse(dateTimeParts[1], TIME_FMT);
 
         if (amount <= 0 ) {
             System.out.println("Amount must be entered as a positive number. Please try again.");
