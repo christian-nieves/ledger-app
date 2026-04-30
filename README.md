@@ -1,9 +1,8 @@
-# Project Title
+# Ledger App
 
 ## Description of the Project
 
-Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
-
+This Java console application is to add deposits, make payments, & to view your transaction history. There are different screens that take you to different sections in order to complete the task that you want to complete. In the ledger there are many different filters and options to view what you want to view. There are 6 different ledger options to choose from and the sixth one is a custom search feature that gives you full freedom on what transaction or type of transaction you want to look for.
 ## User Stories
 
 - As a user, I want to add a deposit, so I can add funds to my account.
@@ -15,6 +14,7 @@ Briefly describe what this Java console application does. Mention its purpose an
 ## Setup
 
 Instructions on how to set up and run the project using IntelliJ IDEA.
+
 
 ### Prerequisites
 
@@ -29,12 +29,11 @@ Follow these steps to get your application running within IntelliJ IDEA:
 2. Select "Open" and navigate to the directory where you cloned or downloaded the project.
 3. After the project opens, wait for IntelliJ to index the files and set up the project.
 4. Find the main class with the `public static void main(String[] args)` method.
-5. Right-click on the file and select 'Run 'YourMainClassName.main()'' to start the application.
+5. Right-click on the file and select 'Run 'FinancialTracker.main()' to start the application.
 
 ## Technologies Used
 
-- Java: Mention the version you are using.
-- Any additional libraries or frameworks used in the project.
+- Java: Amazon Corretto 17.0.18
 
 ## Demo
 
@@ -53,18 +52,17 @@ Outline potential future enhancements or functionalities you might consider addi
 
 List resources such as tutorials, articles, or documentation that helped you during the project.
 
-- [Java Programming Tutorial](https://www.example.com)
-- [Effective Java](https://www.example.com)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/java)
+- [YearUp Java Visuals](https://raymaroun.github.io/yearup-java-visuals/)
 
 ## Team Members
 
-- **Name 1** - Specific contributions or roles.
-- **Name 2** - Specific contributions or roles.
+- **Name 1** - Christian Nieves
 
 ## Thanks
 
 Express gratitude towards those who provided help, guidance, or resources:
 
-- Thank you to [Mentor's Name] for continuous support and guidance.
+- Thank you to Raymond Maroun for continuous support and guidance.
 - A special thanks to all teammates for their dedication and teamwork.
  

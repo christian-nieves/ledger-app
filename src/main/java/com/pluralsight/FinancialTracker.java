@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /*
@@ -80,12 +81,13 @@ public class FinancialTracker {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
             while ((line = bufferedReader.readLine()) != null) {
                 String[] parts = line.split("\\|");
-                LocalDate date = LocalDate.parse(parts[0]);
-                LocalTime time = LocalTime.parse(parts[1]);
+                LocalDate date = LocalDate.parse(parts[0], DATE_FMT);
+                LocalTime time = LocalTime.parse(parts[1], TIME_FMT);
                 String description = parts[2];
                 String vendor = parts[3];
-                double price = Double.parseDouble(parts[4]);
-                transactions.add(new Transaction(date, time, description, vendor, price));
+                double amount = Double.parseDouble(parts[4]);
+                transactions.add(new Transaction(date, time, description, vendor, amount));
+
             }
             bufferedReader.close();
 
@@ -123,16 +125,19 @@ public class FinancialTracker {
         double amount = Double.parseDouble(scanner.nextLine());
 
         String[] dateTimeParts = dateTime.split(" ");
-        LocalDate date = LocalDate.parse(dateTimeParts[0]);
-        LocalTime time = LocalTime.parse(dateTimeParts[1]);
+        LocalDate date = LocalDate.parse(dateTimeParts[0], DATE_FMT);
+        LocalTime time = LocalTime.parse(dateTimeParts[1], TIME_FMT);
 
         if (amount <= 0 ) {
             System.out.println("Amount must be positive. Please try again.");
             return;
         }
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("transactions.csv", true))) {
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("transactions.csv", true));
             bufferedWriter.write(date + "|" + time + "|" + description + "|" + vendor + "|" + amount);
             bufferedWriter.newLine();
+            bufferedWriter.close();
+            transactions.add(new Transaction(date, time, description, vendor, amount));
 
         } catch (Exception e) {
             System.err.println("There was an error adding your deposit. Please try again later.");
@@ -168,9 +173,12 @@ public class FinancialTracker {
             System.out.println("Amount must be entered as a positive number. Please try again.");
             return;
         }
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("transactions.csv", true))) {
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("transactions.csv", true));
             bufferedWriter.write(date + "|" + time + "|" + description + "|" + vendor + "|" + negativeAmount);
             bufferedWriter.newLine();
+            bufferedWriter.close();
+            transactions.add(new Transaction(date, time, description, vendor, negativeAmount));
 
         } catch (Exception e) {
             System.err.println("There was an error adding your deposit. Please try again later.");
@@ -181,6 +189,7 @@ public class FinancialTracker {
        Ledger menu
        ------------------------------------------------------------------ */
     private static void ledgerMenu(Scanner scanner) {
+
         boolean running = true;
         while (running) {
             System.out.println("Ledger");
@@ -210,16 +219,17 @@ public class FinancialTracker {
     private static void displayLedger() { /* TODO – print all transactions in column format */
         System.out.println("All transactions: ");
         for (Transaction transaction : transactions) {
-            System.out.println(transaction.getDate() + "|" + transaction.getTime() + "|" + transaction.getDescription() + "|" + transaction.getVendor() + "|" + transaction.getAmount());
+            System.out.println(transaction);
         }
 
     }
 
+    // think about using the tostring
     private static void displayDeposits() { /* TODO – only amount > 0               */
         System.out.println("All deposits: ");
         for (Transaction transaction : transactions) {
             if (transaction.getAmount() > 0) {
-                System.out.println(transaction.getDate() + "|" + transaction.getTime() + "|" + transaction.getDescription() + "|" + transaction.getVendor() + "|" + transaction.getAmount());
+                System.out.println(transaction);
             }
         }
     }
@@ -228,7 +238,7 @@ public class FinancialTracker {
         System.out.println("All payments: ");
         for (Transaction transaction : transactions) {
             if (transaction.getAmount() < 0) {
-                System.out.println(transaction.getDate() + "|" + transaction.getTime() + "|" + transaction.getDescription() + "|" + transaction.getVendor() + "|" + transaction.getAmount());
+                System.out.println(transaction);
             }
         }
     }
@@ -301,8 +311,9 @@ public class FinancialTracker {
 
 
         for (Transaction transaction : transactions) {
+            // fix if condition
             if (transaction.getDate().isAfter(start) && transaction.getDate().isBefore(end)) {
-                System.out.println(transaction.getDate() + "|" + transaction.getTime() + "|" + transaction.getDescription() + "|" + transaction.getVendor() + "|" + transaction.getAmount());
+                System.out.println(transaction);
             }
         }
 
@@ -312,7 +323,7 @@ public class FinancialTracker {
         // TODO – iterate transactions, print those with matching vendor
         for (Transaction transaction : transactions) {
             if (transaction.getVendor().equalsIgnoreCase(vendor)) {
-                System.out.println(transaction.getDate() + "|" + transaction.getTime() + "|" + transaction.getDescription() + "|" + transaction.getVendor() + "|" + transaction.getAmount());
+                System.out.println(transaction);
             }
         }
 
