@@ -39,24 +39,9 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 
 
-![Screenshot 2026-04-30 at 11.11.31 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.11.31%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.21.04 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.21.04%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.21.20 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.21.20%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.22.23 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.22.23%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.22.47 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.22.47%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.23.38 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.23.38%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.24.11 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.24.11%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.24.38 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.24.38%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.25.49 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.25.49%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.26.14 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.26.14%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.26.39 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.26.39%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.26.54 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.26.54%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.27.42 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.27.42%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.28.03 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.28.03%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.29.09 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.29.09%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.29.46 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.29.46%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.30.00 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.30.00%E2%80%AFPM.png)
-![Screenshot 2026-04-30 at 11.30.13 PM.png](../../../../Desktop/Screenshot%202026-04-30%20at%2011.30.13%E2%80%AFPM.png)
+<img src="/Users/cmnieves1/Desktop/1-Ledger.png" title="Home Screen"/>
+<img src="/Users/cmnieves1/Desktop/2-Ledger.png" title="Add Deposit"/>
+
 
 ## Future Work
 
