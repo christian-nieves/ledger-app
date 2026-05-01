@@ -37,8 +37,23 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Demo
 
-<img height="274" src="/Users/cmnieves1/Desktop/1-Ledger.png" title="Home Screen" width="442"/>
-<img src="/Users/cmnieves1/Desktop/2-Ledger.png" title="Add Deposit"/>
+![1-Ledger.png](images/1-Ledger.png)
+![2-Ledger.png](images/2-Ledger.png)
+![3-Ledger.png](images/3-Ledger.png)
+![4-Ledger.png](images/4-Ledger.png)
+![5-Ledger.png](images/5-Ledger.png)
+![6-Ledger.png](images/6-Ledger.png)
+![7-Ledger.png](images/7-Ledger.png)
+![8-Ledger.png](images/8-Ledger.png)
+![9-Ledger.png](images/9-Ledger.png)
+![10-Ledger.png](images/10-Ledger.png)
+![11-Ledger.png](images/11-Ledger.png)
+![12-Ledger.png](images/12-Ledger.png)
+![13-Ledger.png](images/13-Ledger.png)
+![14-Ledger.png](images/14-Ledger.png)
+![15-Ledger.png](images/15-Ledger.png)
+![16-Ledger.png](images/16-Ledger.png)
+![17-Ledger.png](images/17-Ledger.png)
 
 
 ## Future Work
