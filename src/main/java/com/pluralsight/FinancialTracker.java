@@ -195,7 +195,7 @@ public class FinancialTracker {
     private static void reportsMenu(Scanner scanner) {
         boolean running = true;
         while (running) {
-            System.out.println("Reports");
+            System.out.println("Reports"); // reports menu giving the user options to select what report the user wants to see
             System.out.println("Choose an option:");
             System.out.println("1) Month To Date");
             System.out.println("2) Previous Month");
@@ -205,52 +205,52 @@ public class FinancialTracker {
             System.out.println("6) Custom Search");
             System.out.println("0) Back");
 
-            String input = scanner.nextLine().trim();
+            String input = scanner.nextLine().trim(); // takes user input and trims any extra space
 
-            switch (input) {
-                case "1" -> {
+            switch (input) { // switch case that does the next step depending on what the user entered
+                case "1" -> { // shows all transactions from the first of the month to the current date
                     LocalDate start = LocalDate.now().withDayOfMonth(1);
                     LocalDate end = LocalDate.now();
                     filterTransactionsByDate(start, end);
                 }
-                case "2" -> {
-                    LocalDate firstOfThisMonth = LocalDate.now().withDayOfMonth(1);
-                    LocalDate start = firstOfThisMonth.minusMonths(1);
+                case "2" -> { // shows all transactions from the previous month
+                    LocalDate firstOfThisMonth = LocalDate.now().withDayOfMonth(1); // creates variable for first of this month
+                    LocalDate start = firstOfThisMonth.minusMonths(1); // goes from first of this month to first of last month
                     LocalDate end = firstOfThisMonth.minusDays(1);
                     filterTransactionsByDate(start, end);
                 }
-                case "3" -> {
-                    LocalDate start = LocalDate.now().withDayOfYear(1);
-                    LocalDate end = LocalDate.now();
+                case "3" -> { // shows all transactions from the first of this year to the current date
+                    LocalDate start = LocalDate.now().withDayOfYear(1); // starts at first of year
+                    LocalDate end = LocalDate.now(); // ends at current date
                     filterTransactionsByDate(start, end);
                 }
-                case "4" -> {
-                    LocalDate firstOfThisYear = LocalDate.now().withDayOfYear(1);
-                    LocalDate start = firstOfThisYear.minusYears(1);
-                    LocalDate end = firstOfThisYear.minusDays(1);
+                case "4" -> { // shows all transactions from the previous year
+                    LocalDate firstOfThisYear = LocalDate.now().withDayOfYear(1); // creates variable for first day of this year
+                    LocalDate start = firstOfThisYear.minusYears(1); // uses minusYears to go to first day of previous year
+                    LocalDate end = firstOfThisYear.minusDays(1); // uses minusDays to go to last day of previous year
                     filterTransactionsByDate(start, end);
                 }
-                case "5" -> {
+                case "5" -> { // user searches for transactions by vendor
                     try {
                         System.out.println("Search by vendor: ");
                         String vendor = scanner.nextLine();
-                        filterTransactionsByVendor(vendor);
+                        filterTransactionsByVendor(vendor); // calls method and only shows transactions that match what the user entered
 
                         } catch (Exception e) {
                         System.err.println("This vendor does not exist. Please try again.");
-                    }
+                    }                     // prints an message in red text telling the user that the vendor doesn't exist
                 }
-                case "6" -> customSearch(scanner);
+                case "6" -> customSearch(scanner); // calls customSearch method
 
-                case "0" -> running = false;
-                default -> System.out.println("Invalid option");
+                case "0" -> running = false; // goes back if user types "0"
+                default -> System.out.println("Invalid option"); // if user inputs an invalid option it will display this message
             }
         }
     }
 
     private static void filterTransactionsByDate(LocalDate start, LocalDate end) {
-
-        for (Transaction transaction : transactions) {
+        // filters transactions by date using for to go through every transaction and if to select which transaction qualifies the needs
+        for (Transaction transaction : transactions) { // uses ! - before and ! - after to make sure everything within the boundaries shows
             if (!transaction.getDate().isBefore(start) && !transaction.getDate().isAfter(end)) {
                 System.out.println(transaction);
             }
@@ -258,16 +258,16 @@ public class FinancialTracker {
     }
 
     private static void filterTransactionsByVendor(String vendor) {
-
-        for (Transaction transaction : transactions) {
-            if (transaction.getVendor().equalsIgnoreCase(vendor)) {
+        // filters transactions by vendor using a scanner to receive what the user inputted and checking if it matches with an existing vendor
+        for (Transaction transaction : transactions) { // goes through each transaction
+            if (transaction.getVendor().equalsIgnoreCase(vendor)) { // checks each transaction if it equals to user input
                 System.out.println(transaction);
             }
         }
     }
 
     private static void customSearch(Scanner scanner) {
-        System.out.println("Enter the start date (yyyy-MM-dd), or press Enter to skip: ");
+        System.out.println("Enter the start date (yyyy-MM-dd), or press Enter to skip: "); // custom search method that gives the user freedom to skip a line if they want to
         String startDate = scanner.nextLine().trim();
 
         System.out.println("Enter the end date (yyyy-MM-dd), or press Enter to skip: ");
@@ -283,9 +283,9 @@ public class FinancialTracker {
         String amount = scanner.nextLine().trim();
 
         try {
-            for (Transaction transaction : transactions) {
-                // FIX: AND logic — start true, eliminate on any mismatch
-                boolean run = true;
+            for (Transaction transaction : transactions) { // for each loop that goes through every transaction
+
+                boolean run = true; // run true instead of false so that it only changes something if it's false
 
                 if (!startDate.isBlank() && transaction.getDate().isBefore(LocalDate.parse(startDate))) {
                     run = false;
@@ -299,16 +299,16 @@ public class FinancialTracker {
                 if (!vendor.isBlank() && !transaction.getVendor().equalsIgnoreCase(vendor)) {
                     run = false;
                 }
-                if (!amount.isBlank() && Math.abs(transaction.getAmount()) != Double.parseDouble(amount)) {
+                if (!amount.isBlank() && Math.abs(transaction.getAmount()) != Double.parseDouble(amount)) { // uses math.abs to show both deposits and payments
                     run = false;
                 }
 
-                if (run) {
+                if (run) { // this runs the custom search and prints out the transactions based off of the filters you applied
                     System.out.println(transaction);
                 }
             }
         } catch (Exception e) {
-            System.err.println("The input you entered is incorrect. Please try again.");
+            System.err.println("The input you entered is incorrect. Please try again."); // message in red alerting user that the input is incorrect
         }
     }
 
