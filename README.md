@@ -37,7 +37,7 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Demo
 
-![](/Users/cmnieves1/Desktop/1-Ledger.png "Home Screen")
+<img height="274" src="/Users/cmnieves1/Desktop/1-Ledger.png" title="Home Screen" width="442"/>
 <img src="/Users/cmnieves1/Desktop/2-Ledger.png" title="Add Deposit"/>
 
 
